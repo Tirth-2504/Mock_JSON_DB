@@ -9,6 +9,8 @@ const port = process.env.PORT;
 app.set('view engine', 'ejs');
 app.set('views',  './views');
 
+//Middleware to serve static files
+app.use(express.static('public'));
 
 
 app.listen(port, () => {

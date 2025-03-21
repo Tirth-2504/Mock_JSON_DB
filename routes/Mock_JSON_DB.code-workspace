@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "Mock_JSON_DB",
+			"path": ".."
+		},
+		{
+			"name": "views",
+			"path": "../../views"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "views"
+	}
+}

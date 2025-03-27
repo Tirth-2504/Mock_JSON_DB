@@ -1,6 +1,14 @@
 body{
-    background: linear-gradient(to left, blue, lightblue);
+    background: linear-gradient(to  left, blue,lightblue);
+    
+}
 
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
 }
 
 form{
@@ -8,6 +16,7 @@ form{
     text-align: left;
     border: 1px solid #ddd;
     padding:30px;
+    max-width: 400px;
     margin:10px;
     margin-top:30px;
     border-radius:5px;
@@ -74,6 +83,7 @@ button[type="submit"]{
 
 button[type="submit"]:hover{
     background-color: #3e8e41;
+
 }
 
 #image{

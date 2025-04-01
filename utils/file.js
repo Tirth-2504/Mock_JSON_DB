@@ -19,6 +19,4 @@ async function writeData(data){
     }
 }
 
-
-
-module.exports = { readData };
+module.exports = { readData, writeData };

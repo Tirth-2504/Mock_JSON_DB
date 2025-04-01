@@ -11,6 +11,7 @@ async function createUser(req, res){
         const lastUserId = data.users[data.users.length - 1];
         
         //what happens if there are no users?
+        //ternary operator
         const nextId = lastUser ? lastUser.id + 1 : 1;
 
         //create the new user object 
@@ -30,4 +31,7 @@ async function createUser(req, res){
     }catch(error){
         res.status(500).json(`Internal Server Error: ${error}`);
     }
+
 }
+
+module.exports = { createUser };

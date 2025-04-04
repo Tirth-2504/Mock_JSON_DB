@@ -1,14 +1,13 @@
 const fs  = require('fs');
 const filePath = require('../database.json'); 
 const { readData, writeData } = require('../utils/file');  
-const { use } = require('../routes/users');
 
 async function createUser(req, res){
     try{
         const data = await readData();
 
         //determine the last user ID
-        const lastUserId = data.users[data.users.length - 1];
+        const lastUser = data.users[data.users.length - 1];
         
         //what happens if there are no users?
         //ternary operator

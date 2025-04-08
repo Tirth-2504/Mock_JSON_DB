@@ -46,7 +46,6 @@ require('dotenv').config();
 const PORT = process.env.PORT;
 const bodyParser = require('body-parser');
 const rateLimit = require('express-rate-limit');
-const bodyParser = require('body-parser');
 const fixdWindowRateLimit = rateLimit({
     windowMs: 1 * 15 * 1000,
     max: 10,

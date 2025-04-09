@@ -46,6 +46,11 @@ require('dotenv').config();
 const PORT = process.env.PORT;
 const bodyParser = require('body-parser');
 const rateLimit = require('express-rate-limit');
+const mongoose = require('mongoose');
+const YAML = require('yamljs');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = YAML.load('./swagger.yaml');
+
 const fixdWindowRateLimit = rateLimit({
     windowMs: 1 * 15 * 1000,
     max: 10,
@@ -57,6 +62,7 @@ app.set('view engine','ejs');
 app.set('views', './views');
 
 //Middleware to serve static files
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.json());

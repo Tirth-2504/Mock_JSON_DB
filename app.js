@@ -47,9 +47,11 @@ const PORT = process.env.PORT;
 const bodyParser = require('body-parser');
 const rateLimit = require('express-rate-limit');
 const mongoose = require('mongoose');
+const uri ='mongodb+srv://TIRTH:tirth2130@cluster0.boux33a.mongodb.net/';
 const YAML = require('yamljs');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = YAML.load('./swagger.yaml');
+
 
 const fixdWindowRateLimit = rateLimit({
     windowMs: 1 * 15 * 1000,
@@ -70,7 +72,12 @@ app.use(express.static('public'));
 app.use(fixdWindowRateLimit);
 app.use(userRoutes);
 
+mongoose.connect(uri).then(
+    async () => {
+        console.log('Connected to MongoDB Server');
 
-app.listen(PORT, '0.0.0.0', ()=>{
-    console.log(`Connected on port: ${PORT}`);
-});
+        app.listen(PORT, '0.0.0.0', ()=>{
+            console.log(`Connected on port: ${PORT}`);
+        });
+    }   
+).catch((err) => {console.log(`Error: ${err}`)});
